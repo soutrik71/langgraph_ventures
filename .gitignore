@@ -169,3 +169,8 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+.env
+notebooks/lc_academy/module-2/state_db/example.db
+notebooks/lc_academy/module-2/state_db/example.db-shm
+notebooks/lc_academy/module-2/state_db/example.db-wal
+notebooks/lc_academy/module-2/state_db/example.db-x-checkpoints-3-metadata.bin
