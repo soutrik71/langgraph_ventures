@@ -1,6 +1,5 @@
 from typing import List
 
-from fastapi import FastAPI
 from langchain_openai import AzureChatOpenAI, AzureOpenAIEmbeddings
 from dotenv import load_dotenv
 
@@ -13,7 +12,7 @@ def get_llm(
     temperature=0,
     timeout=600,
     max_tokens=4096,
-    max_retries=1,
+    max_retries=2,
 ):
     return AzureChatOpenAI(
         azure_deployment=azure_deployment,
