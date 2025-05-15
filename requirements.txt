@@ -275,3 +275,4 @@ pymupdf4llm
 langchain-pymupdf4llm
 langdetect
 reportlab
+langchain-milvus

@@ -25,7 +25,7 @@ def get_llm(
 
 
 def get_embedder(
-    openai_api_version="2023-05-15", azure_deployment="text-embedding-ada-002"
+    openai_api_version="2023-05-15", azure_deployment="text-embedding-3-small"
 ):
     embeddings = AzureOpenAIEmbeddings(
         openai_api_version=openai_api_version, azure_deployment=azure_deployment
