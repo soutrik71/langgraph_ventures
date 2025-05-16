@@ -27,13 +27,13 @@ class CheckandGradeResponse(BaseModel):
 
 system_prompt_checker_grader = """
 Task:
-Evaluate whether the summarized response accurately and relevantly answers the original user question, based on the retrieved documents.
+Evaluate whether the summarized response < Summarized Response> accurately and relevantly answers the original user question <Original Question>, based on the retrieved documents<Retrieved Documents>.
 
 Instructions:
 1. Carefully read the original user question, the summarized response, and the raw content of the retrieved documents.
 2. Identify hallucinations in the summarized response:
    - A hallucination is any fabricated, inaccurate, or unsupported information not grounded in the retrieved documents.
-   - This includes entities, facts, or claims that are either not present in or contradict the retrieved content.
+   - When the facts and information in the summarized response do not match the content of the retrieved documents.
 3. Set the Hallucination flag to:
    - 'yes' if any hallucinated content is found.
    - 'no' if the response is fully supported by the retrieved documents.

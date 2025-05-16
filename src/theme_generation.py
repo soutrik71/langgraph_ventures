@@ -2,6 +2,7 @@ from langchain_core.output_parsers import PydanticOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from pydantic import BaseModel, Field
 
+
 # Define the output schema
 class ThemeKeywords(BaseModel):
     summary: str = Field(
@@ -12,9 +13,11 @@ class ThemeKeywords(BaseModel):
         ..., description="A list of the most important keywords from the document."
     )
 
+
 # Patch for Pydantic v1 compatibility
 if not hasattr(ThemeKeywords, "model_json_schema"):
     ThemeKeywords.model_json_schema = ThemeKeywords.schema
+
 
 def get_theme_keywords_chain(llm):
     """

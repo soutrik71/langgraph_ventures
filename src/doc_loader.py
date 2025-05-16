@@ -3,6 +3,7 @@ from langchain_community.document_loaders import WebBaseLoader
 from src.theme_generation import get_theme_keywords_chain
 import asyncio
 
+
 class DocumentProcessor:
     def __init__(self, llm):
         self.llm = llm
@@ -25,10 +26,15 @@ class DocumentProcessor:
         Input: Uses self.docs_list
         Output: List of theme/keyword results (self.theme_keywords_results)
         """
-        async def process(doc):
-            return await self.theme_keywords_chain.ainvoke({"page_content": doc.page_content})
 
-        self.theme_keywords_results = await asyncio.gather(*(process(doc) for doc in self.docs_list))
+        async def process(doc):
+            return await self.theme_keywords_chain.ainvoke(
+                {"page_content": doc.page_content}
+            )
+
+        self.theme_keywords_results = await asyncio.gather(
+            *(process(doc) for doc in self.docs_list)
+        )
         return self.theme_keywords_results
 
     def enrich_metadata(self):
@@ -61,11 +67,11 @@ class DocumentProcessor:
         3. Enrich metadata
         4. Split documents
 
-        Input: 
+        Input:
             urls: list of URLs
             chunk_size: int (default 1000)
             chunk_overlap: int (default 0)
-        Output: 
+        Output:
             doc_splits: list of split document chunks
         """
         self.load_documents(urls)
