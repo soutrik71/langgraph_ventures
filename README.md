@@ -1,97 +1,51 @@
-![LangChain Academy](https://cdn.prod.website-files.com/65b8cd72835ceeacd4449a53/66e9eba1020525eea7873f96_LCA-big-green%20(2).svg)
+# LangGraph Academy Course Materials
 
-## Introduction
+This repository contains recreated materials and examples from the LangGraph Academy course, organized by modules.
 
-Welcome to LangChain Academy! 
-This is a growing set of modules focused on foundational concepts within the LangChain ecosystem. 
-Module 0 is basic setup and Modules 1 - 4 focus on LangGraph, progressively adding more advanced themes. 
-In each module folder, you'll see a set of notebooks. A LangChain Academy accompanies each notebook 
-to guide you through the topic. Each module also has a `studio` subdirectory, with a set of relevant 
-graphs that we will explore using the LangGraph API and Studio.
+## Module 1: Introduction
 
-## Setup
+### Course Structure:
+1. Module Introduction (~1 min)
+   - Overview and course setup
+   - Text-based resources
 
-### Python version
+2. Motivation (8 min)
+   - Understanding the purpose and applications
 
-To get the most out of this course, please ensure you're using Python 3.11 or later. 
-This version is required for optimal compatibility with LangGraph. If you're on an older version, 
-upgrading will ensure everything runs smoothly.
-```
-python3 --version
-```
+3. Simple Graph (6 min)
+   - Basic graph concepts and implementation
 
-### Clone repo
-```
-git clone https://github.com/langchain-ai/langchain-academy.git
-$ cd langchain-academy
-```
+4. LangGraph Studio (4 min)
+   - Introduction to the development environment
+   - Basic setup and navigation
 
-### Create an environment and install dependencies
-#### Mac/Linux/WSL
-```
-$ python3 -m venv lc-academy-env
-$ source lc-academy-env/bin/activate
-$ pip install -r requirements.txt
-```
-#### Windows Powershell
-```
-PS> python3 -m venv lc-academy-env
-PS> Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
-PS> lc-academy-env\scripts\activate
-PS> pip install -r requirements.txt
-```
+5. Chain (6 min)
+   - Understanding chain concepts
+   - Basic chain implementation
 
-### Running notebooks
-If you don't have Jupyter set up, follow installation instructions [here](https://jupyter.org/install).
-```
-$ jupyter notebook
-```
+6. Router (5 min)
+   - Routing mechanisms
+   - Flow control in LangGraph
 
-### Setting up env variables
-Briefly going over how to set up environment variables. You can also 
-use a `.env` file with `python-dotenv` library.
-#### Mac/Linux/WSL
-```
-$ export API_ENV_VAR="your-api-key-here"
-```
-#### Windows Powershell
-```
-PS> $env:API_ENV_VAR = "your-api-key-here"
-```
+7. Agent (7 min)
+   - Introduction to agents
+   - Basic agent implementation
 
-### Set OpenAI API key
-* If you don't have an OpenAI API key, you can sign up [here](https://openai.com/index/openai-api/).
-*  Set `OPENAI_API_KEY` in your environment 
+8. Agent with Memory (8 min)
+   - Advanced agent concepts
+   - Memory implementation
 
-### Sign up and Set LangSmith API
-* Sign up for LangSmith [here](https://smith.langchain.com/), find out more about LangSmith
-* and how to use it within your workflow [here](https://www.langchain.com/langsmith), and relevant library [docs](https://docs.smith.langchain.com/)!
-*  Set `LANGCHAIN_API_KEY`, `LANGCHAIN_TRACING_V2=true` in your environment 
+9. [Optional] Intro to Deployment (6 min)
+   - Deployment basics
+   - Production considerations
 
-### Set up Tavily API for web search
+### Additional Resources
+- [Original Course Repository](https://github.com/soutrik71/langchain-academy)
+- [LangChain Documentation](https://python.langchain.com/docs/get_started/introduction)
 
-* Tavily Search API is a search engine optimized for LLMs and RAG, aimed at efficient, 
-quick, and persistent search results. 
-* You can sign up for an API key [here](https://tavily.com/). 
-It's easy to sign up and offers a very generous free tier. Some lessons (in Module 4) will use Tavily. 
+## Progress Tracking
+- [x] Module 1: Introduction
+- [ ] Future modules to be added
 
-* Set `TAVILY_API_KEY` in your environment.
+Note: This repository is a learning exercise to recreate and test concepts from the LangGraph Academy course. Examples and implementations will be added as new modules are covered.
 
-### Set up LangGraph Studio
-
-* Currently, Studio only has macOS support and needs Docker Desktop running.
-* Download the latest `.dmg` file [here](https://github.com/langchain-ai/langgraph-studio?tab=readme-ov-file#download)
-* Install Docker desktop for Mac [here](https://docs.docker.com/engine/install/)
-
-### Running Studio
-Graphs for LangGraph Studio are in the `module-x/studio/` folders.
-
-* To use Studio, you will need to create a .env file with the relevant API keys
-* Run this from the command line to create these files for module 1 to 5, as an example:
-```
-for i in {1..6}; do
-  cp module-$i/studio/.env.example module-$i/studio/.env
-  echo "OPENAI_API_KEY=\"$OPENAI_API_KEY\"" > module-$i/studio/.env
-done
-echo "TAVILY_API_KEY=\"$TAVILY_API_KEY\"" >> module-4/studio/.env
-```
